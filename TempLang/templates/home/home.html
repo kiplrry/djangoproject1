@@ -1,0 +1,15 @@
+{% comment  %}
+
+{% extends 'home/base.html' %}
+{% block content %}
+{% endblock content %}
+{% endcomment %}
+{% load static %}
+<a href="{% url 'logout' %}">logout</a>
+<a href="{% url 'todos' %}">todos</a>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque pariatur nemo adipisci atque doloribus laudantium aspernatur, autem vel quo consequuntur sunt inventore dignissimos suscipit itaque. Consequuntur accusamus tenetur deserunt aut?</p>
+<img
+    src="{% static '/images/squig.png' %}"
+    class="img-fluid rounded-top"
+    alt=""
+/>

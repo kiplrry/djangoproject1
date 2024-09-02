@@ -1,0 +1,39 @@
+   # include 'base.jinja'
+   {% block content %}
+   <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">To-Do List</h2>
+                
+                <!-- Add Task Form -->
+                <form method="POST" action="{{ url('todos') }}" id="add-task">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <div class="input-group mb-3">
+                        <input type="text" name="task" class="form-control" placeholder="Enter a new task" 
+                        autocomplete="off" id="task-input" required>
+                        <button class="btn btn-primary" type="submit">Add Task</button>
+                    </div>
+                </form>
+                <form class="d-flex mb-3" action="{{ url('todos') }}" method="get" id="search-todos">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" id="search" required>
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                </form>
+                
+                <!-- To-Do List -->
+                 <div class="all-todos" id="all-todos">
+
+                     <!-- <ul class="list-group" id="todo_list">
+    
+    
+                     todoss here 
+    
+    
+                    </ul> -->
+                 </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock  %}
+{% block scripts %}
+{% endblock scripts %}

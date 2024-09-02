@@ -1,0 +1,22 @@
+
+# include 'base.jinja'
+# import 'form_macros.jinja' as forms
+{% block content %}
+    <div class="container-fluid vh-100 d-flex bg-white justify-content-around align-items-center py-4 gap-3 flex-wrap">
+        <div class="col-lg-5 d-sm-none row bg-black rounded-3 justify-content-center p-4" style="height: 60%;">
+            <h2 class="d-block text-white h1">Organic<br>Mind</h2>
+            <img class="img-fluid h-75 w-auto"  src="{{ static('images/squig.png') }}">
+        </div>
+        <div class="col-lg-5 row bg-body-secondary rounded-3 justify-content-center align-items-center p-5 mx-sm-5" style="min-height: 60%;">
+            <div class="container row justify-content-center align-items-center">
+                <h2 class="text-center text-black h1 ">Productive Mind</h2>
+                    <form action="/register" method="post">
+                        {{ forms.register(csrf_token, errors=errors)}}
+                    </form>
+                <h5 class="text-center mt-4">Have an account? <a href="{{ url('login') }}">Login here</a></h5>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
+

@@ -1,0 +1,8 @@
+{# form.html #}
+{% extends 'home/base.jinja' %}
+
+{% import 'home/form.jinja' as forms %}
+
+{% block content %}
+{{ forms.login() }}
+{% endblock content %}

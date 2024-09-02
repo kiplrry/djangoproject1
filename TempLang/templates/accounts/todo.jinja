@@ -1,0 +1,27 @@
+<div class="modal-content">
+<div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Todo</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body" id="modal-body">
+    <form method="POST" action="{{ url('todo_act', todo.id, 'edit') }}" id="todo-form">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <div class="mb-3">
+                    <label for="task" class="form-label">Task</label>
+                    <input type="text" name="task" id="task" class="form-control" value="{{ todo.task }}" required>
+                </div>
+                <div class="form-check mb-3">
+                {% if not todo.completed %}
+                    <input type="checkbox" name="completed" id="completed" class="form-check-input" >
+                {% else %}
+                    <input type="checkbox" name="completed" id="completed" class="form-check-input" checked>
+                {% endif %}
+                    <label for="completed" class="form-check-label">Completed</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Save Changes</button>
+                </div>
+    </form>
+</div>
+</div>

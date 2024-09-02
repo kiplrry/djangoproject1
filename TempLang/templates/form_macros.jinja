@@ -1,0 +1,46 @@
+{% macro login(csrf_token, errors) %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        {% if errors %}
+            {% for key, error in errors.items() %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+{% endmacro %}
+    <p class="text-center">Are you sure you want to logout?</p>
+    <button type="submit" class="btn btn-danger w-100">Logout</button>
+{% macro register(csrf_token, errors) %}
+<form action="/register">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password1" placeholder="Enter your password" required>
+    </div>
+    <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" name="password2" placeholder="Confirm your password" required>
+    </div>
+    {% if errors %}
+        {% for key, error in errors.items()  %}
+        <p>{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+</form>  
+{% endmacro %}
